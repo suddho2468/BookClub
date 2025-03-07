@@ -1,0 +1,73 @@
+header{
+    background-color: dodgerblue;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border: 10px dashed wheat;
+}
+
+nav{
+    background-color: rgb(30, 255, 109);
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border: 10px dashed wheat;
+}
+
+#intro{
+    background-color: rgb(47, 87, 233);
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border: 10px dashed lightcoral;
+    color: white;
+}
+
+h2{
+    background-color: rgb(56, 207, 221);
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border: 10px dotted lightgoldenrodyellow;
+    border-radius: 15px;
+}
+
+h3{
+    background-color: rgb(202, 98, 50);
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border: 10px solid rgb(187, 17, 139);
+    border-radius: 15px;
+    color: wheat;
+}
+
+.teacher{
+    background-color: rgb(202, 98, 50);
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border: 10px solid rgb(187, 17, 139);
+    border-radius: 15px;
+    color: wheat;
+}
+
+#alice-review{
+    background-color: rgb(202, 98, 50);
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border: 10px solid rgb(187, 17, 139);
+    border-radius: 15px;
+    color: wheat;
+}
+
+#videos{
+    background-color: rgb(202, 98, 50);
+        text-align: center;
+        padding: 10px;
+        margin: 10px;
+        border: 10px solid rgb(187, 17, 139);
+        border-radius: 15px;
+        color: wheat;
+}
