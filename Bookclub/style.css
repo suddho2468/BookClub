@@ -4,6 +4,7 @@ header{
     padding: 10px;
     margin: 10px;
     border: 10px dashed wheat;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 nav{
@@ -12,6 +13,7 @@ nav{
     padding: 10px;
     margin: 10px;
     border: 10px dashed wheat;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #intro{
@@ -21,6 +23,7 @@ nav{
     margin: 10px;
     border: 10px dashed lightcoral;
     color: white;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 h2{
@@ -30,6 +33,7 @@ h2{
     margin: 10px;
     border: 10px dotted lightgoldenrodyellow;
     border-radius: 15px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 h3{
@@ -40,6 +44,7 @@ h3{
     border: 10px solid rgb(187, 17, 139);
     border-radius: 15px;
     color: wheat;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .teacher{
@@ -50,6 +55,7 @@ h3{
     border: 10px solid rgb(187, 17, 139);
     border-radius: 15px;
     color: wheat;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #alice-review{
@@ -60,6 +66,7 @@ h3{
     border: 10px solid rgb(187, 17, 139);
     border-radius: 15px;
     color: wheat;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #videos{
@@ -70,4 +77,65 @@ h3{
         border: 10px solid rgb(187, 17, 139);
         border-radius: 15px;
         color: wheat;
+        font-family: 'Courier New', Courier, monospace;
 }
+
+ul li a{
+     
+        text-decoration: none;
+        
+    
+}
+ul{list-style-type: none;}
+
+ul li a:hover{
+    background-color: lightcoral;
+    color: white;
+}
+
+button:hover{
+    color: burlywood;
+    background-color: aqua;
+}
+
+footer{
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+ol{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+table,
+th,
+td{
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid black;
+    
+    
+}
+
+#table-i{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#twitw{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#footadd{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+#butadd{
+    
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+button{font-family: 'Courier New', Courier, monospace;}
