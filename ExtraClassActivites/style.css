@@ -1,0 +1,18 @@
+#one{
+    background-color: wheat;
+    padding: 40px;
+    height: 60px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 2px 2px 2px 1px black;
+    margin-bottom: 50px;
+}
+
+#two{
+    background-color: wheat;
+    padding: 40px;
+    height: 60px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 2px 2px 2px 1px black;
+}
