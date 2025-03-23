@@ -1,0 +1,59 @@
+.main-contant{
+    background-color: #f6f0e2a1;
+    padding: 10px;
+    text-align: center;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+header{
+    background-color: #f2c6de;
+    padding: 10px;
+    margin: 10px;
+    border: 10px solid #dbcdf0;
+    border-radius: 10px;
+}
+
+nav{
+    background-color: #f2c6de;
+    padding: 10px;
+    padding-right: 45px;
+    margin: auto;
+    width: fit-content;
+    border: 10px solid #dbcdf0;
+    border-radius: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+h2{
+    padding: 10px;
+    margin: 10px;
+    border: 10px solid #f7d9c4;
+    border-radius: 10px;
+}
+
+.info{
+    background-color: #c6def1;
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+footer{
+    background-color: #c9e4de;
+    text-align: center;
+    padding: 10px;
+    border: 10px solid #dbcdf0;
+    border-radius: 10px;
+    width: 70%;
+    margin: auto;
+    margin-top: 10px
+}
+
+ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+ul{list-style-type: none;}
