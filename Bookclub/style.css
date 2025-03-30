@@ -173,3 +173,38 @@ table{
     align-content: center;
 }
 
+header{
+    grid-area: header;
+}
+
+nav{
+    grid-area: nav;
+}
+
+#intro{
+   grid-area: intro; 
+}
+
+#main-section{
+    grid-area: main-section;
+}
+
+#best-sellers{
+    grid-area: best-sellers;
+    background-color: aqua;
+    border: 5px solid black;
+}
+
+footer{
+    grid-area: footer;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-areas: 
+    "header header header header intro"
+    "nav nav nav nav intro"
+    "main-section main-section main-section main-section best-sellers"
+    "footer footer footer footer footer";
+}
