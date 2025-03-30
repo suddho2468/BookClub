@@ -17,8 +17,6 @@ nav{
     background-color: #f2c6de;
     padding: 10px;
     padding-right: 45px;
-    margin: auto;
-    width: fit-content;
     border: 10px solid #dbcdf0;
     border-radius: 10px;
     position: sticky;
@@ -48,12 +46,42 @@ footer{
     border-radius: 10px;
     width: 70%;
     margin: auto;
-    margin-top: 10px
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
 }
 
 ul li a{
     text-decoration: none;
     color: black;
+    font-size: 20px;
 }
 
-ul{list-style-type: none;}
+ul li a:hover{
+    background-color: #c6def1;
+    padding: 5px;
+    font-size: 23px;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+ul li{
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+img{
+    border: 8px solid #f7d9c4;
+    border-radius: 20px;
+}
+
+p{
+    font-size: 20px;
+}
