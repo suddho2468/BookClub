@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Places of Bangladesh</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        header{
+            background-color: #004d40;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+
+        }
+
+        .places{
+            background-color: white;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 5px solid #00796b;
+            border-radius: 6px;
+        }
+
+        .highlight{
+            background-color: #c8e6c9;
+            padding: 10px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Historical Places of Bangladesh</h1>
+        <p>Explore the heritage and ancient wonders</p>
+    </header>
+
+    <section class="places">
+        <h2>Mynamati</h2>
+        <p>An archaeological site in Comilla, containing ruins of Buddhist monasteries dating back to the 8th century.</p>
+    </section>
+    <section class="places">
+        <h2>Mahasthangar</h2>
+        <p>One of the earliest urban archaeological sites in Bangladesh, located in Bogura.</p>
+    </section>
+    <section class="places">
+        <h2>Panam City</h2>
+        <p>A historic city in Sonargaon known for its colonial-era buildings.</p>
+    </section>
+
+    <script>
+        let highlight = document.createElement("div");
+        highlight.className = "highlight";
+        highlight.innerHTML = "📌😊 Did you know? The Mahasthangar site dates back to at least the 3rd century BCE!";
+        document.body.append(highlight);
+
+        let headerTitle = document.getElementById("title");
+        headerTitle.innerHTML = "🏦 Historical Places of Bangladesh";
+    </script>
+
+</body>
+</html>

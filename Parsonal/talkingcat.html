@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <style>
+        :root {
+            --bg: #111;
+            --text: #fff;
+            --accent: #29b6f6;
+            --cell-bg: rgba(255, 255, 255, 0.05);
+            --border: #444;
+            --x-color: #e91e63;
+            --o-color: #4caf50;
+            --popup-bg: #222;
+        }
+
+        body.light {
+            --bg: #f0f0f0;
+            --text: #111;
+            --accent: #1976d2;
+            --cell-bg: rgba(0, 0, 0, 0.05);
+            --border: #ccc;
+            --x-color: #c62828;
+            --o-color: #2e7d32;
+            --popup-bg: #fff;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2em;
+            color: var(--accent);
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        svg.cell {
+            width: 100px;
+            height: 100px;
+            background-color: var(--cell-bg);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        svg.cell:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .status {
+            margin: 20px;
+            font-size: 1.4em;
+        }
+
+        button {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background: #0288d1;
+            transform: scale(1.05);
+        }
+
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .popup-content {
+            background: var(--popup-bg);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 15px #000;
+            color: var(--text);
+        }
+
+        .popup-content h2 {
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .toggle-theme {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.2em;
+            background: none;
+            border: 2px solid var(--accent);
+            padding: 5px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: var(--accent);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .toggle-theme:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="toggle-theme" onclick="toggleTheme()">🌙</button>
+    <h1>Tic Tac Toe</h1>
+
+    <!-- ✅ Adsterra Banner Ad - Top -->
+    <div style="margin: 10px auto; text-align: center;">
+        <script type="text/javascript">
+            atOptions = {
+                'key': '7f2269a88f419abe930cb0d763c683c6',
+                'format': 'iframe',
+                'height': 50,
+                'width': 320,
+                'params': {}
+            };
+        </script>
+        <script type="text/javascript"
+            src="//www.highperformanceformat.com/7f2269a88f419abe930cb0d763c683c6/invoke.js"></script>
+    </div>
+
+    <div class="status" id="status">Player X's Turn</div>
+    <div class="board" id="board"></div>
+    <button onclick="resetGame()">Restart</button>
+
+    <!-- ✅ Adsterra Banner Ad - Bottom -->
+    <div style="margin: 10px auto 20px; text-align: center;">
+        <script type="text/javascript">
+            atOptions = {
+                'key': '7f2269a88f419abe930cb0d763c683c6',
+                'format': 'iframe',
+                'height': 50,
+                'width': 320,
+                'params': {}
+            };
+        </script>
+        <script type="text/javascript"
+            src="//www.highperformanceformat.com/7f2269a88f419abe930cb0d763c683c6/invoke.js"></script>
+    </div>
+
+    <!-- Game Over Popup -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2 id="popup-message">Game Over</h2>
+            <button onclick="resetGame()">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Welcome Popup -->
+    <div class="popup" id="welcomePopup">
+        <div class="popup-content">
+            <h2>Made by Suddho</h2>
+            <button onclick="closeWelcome()">OK</button>
+        </div>
+    </div>
+
+    <!-- Sounds -->
+    <audio id="moveSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_9e2e7996f3.mp3"></audio>
+    <audio id="winSound" src="https://cdn.pixabay.com/audio/2022/10/04/audio_9dfbb7ffbc.mp3"></audio>
+    <audio id="drawSound" src="https://cdn.pixabay.com/audio/2022/10/10/audio_0760a8ce4e.mp3"></audio>
+
+    <script>
+        const board = document.getElementById('board');
+        const status = document.getElementById('status');
+        const popup = document.getElementById('popup');
+        const popupMessage = document.getElementById('popup-message');
+        const welcomePopup = document.getElementById('welcomePopup');
+        const moveSound = document.getElementById('moveSound');
+        const winSound = document.getElementById('winSound');
+        const drawSound = document.getElementById('drawSound');
+
+        let currentPlayer = 'X';
+        let gameState = ["", "", "", "", "", "", "", "", ""];
+        let gameActive = true;
+
+        const winPatterns = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            [0, 4, 8], [2, 4, 6]
+        ];
+
+        function createCell(i) {
+            const svgNS = "http://www.w3.org/2000/svg";
+            const svg = document.createElementNS(svgNS, "svg");
+            svg.classList.add("cell");
+            svg.setAttribute("data-index", i);
+            svg.addEventListener("click", handleMove);
+            return svg;
+        }
+
+        function drawMark(cell, player) {
+            const svgNS = "http://www.w3.org/2000/svg";
+            if (player === "X") {
+                const l1 = document.createElementNS(svgNS, "line");
+                l1.setAttribute("x1", "20"); l1.setAttribute("y1", "20");
+                l1.setAttribute("x2", "80"); l1.setAttribute("y2", "80");
+                l1.setAttribute("stroke", "var(--x-color)"); l1.setAttribute("stroke-width", "8");
+                const l2 = document.createElementNS(svgNS, "line");
+                l2.setAttribute("x1", "80"); l2.setAttribute("y1", "20");
+                l2.setAttribute("x2", "20"); l2.setAttribute("y2", "80");
+                l2.setAttribute("stroke", "var(--x-color)"); l2.setAttribute("stroke-width", "8");
+                cell.append(l1, l2);
+            } else {
+                const circle = document.createElementNS(svgNS, "circle");
+                circle.setAttribute("cx", "50");
+                circle.setAttribute("cy", "50");
+                circle.setAttribute("r", "30");
+                circle.setAttribute("stroke", "var(--o-color)");
+                circle.setAttribute("stroke-width", "8");
+                circle.setAttribute("fill", "none");
+                cell.append(circle);
+            }
+        }
+
+        function handleMove(e) {
+            const index = e.currentTarget.getAttribute("data-index");
+            if (gameState[index] || !gameActive) return;
+
+            gameState[index] = currentPlayer;
+            drawMark(e.currentTarget, currentPlayer);
+            moveSound.play();
+
+            if (checkWinner()) {
+                gameActive = false;
+                popupMessage.textContent = `🎉 Player ${currentPlayer} Wins!`;
+                popup.style.display = "flex";
+                winSound.play();
+            } else if (!gameState.includes("")) {
+                gameActive = false;
+                popupMessage.textContent = "It's a Draw!";
+                popup.style.display = "flex";
+                drawSound.play();
+            } else {
+                currentPlayer = currentPlayer === "X" ? "O" : "X";
+                status.textContent = `Player ${currentPlayer}'s Turn`;
+            }
+        }
+
+        function checkWinner() {
+            return winPatterns.some(([a, b, c]) => {
+                return gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c];
+            });
+        }
+
+        function resetGame() {
+            gameState = ["", "", "", "", "", "", "", "", ""];
+            currentPlayer = "X";
+            gameActive = true;
+            status.textContent = "Player X's Turn";
+            board.innerHTML = "";
+            popup.style.display = "none";
+            initBoard();
+        }
+
+        function initBoard() {
+            for (let i = 0; i < 9; i++) {
+                board.appendChild(createCell(i));
+            }
+        }
+
+        function toggleTheme() {
+            const isLight = document.body.classList.toggle("light");
+            localStorage.setItem("ttt-theme", isLight ? "light" : "dark");
+            document.querySelector(".toggle-theme").textContent = isLight ? "☀️" : "🌙";
+        }
+
+        const savedTheme = localStorage.getItem("ttt-theme");
+        if (savedTheme === "light") {
+            document.body.classList.add("light");
+            document.querySelector(".toggle-theme").textContent = "☀️";
+        }
+
+        window.addEventListener("load", () => {
+            welcomePopup.style.display = "flex";
+        });
+
+        function closeWelcome() {
+            welcomePopup.style.display = "none";
+        }
+
+        initBoard();
+    </script>
+
+</body>
+
+</html>
