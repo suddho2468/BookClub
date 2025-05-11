@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>The Cursed Keypad</title>
+
+    <style>
+        body {
+
+            font-family: monospace;
+
+            background: #000;
+
+            color: #0f0;
+
+            text-align: center;
+
+            padding: 50px;
+
+        }
+
+        input {
+
+            font-size: 24px;
+
+            padding: 5px;
+
+            margin: 10px;
+
+            text-align: center;
+
+        }
+
+        .keypad button {
+
+            font-size: 20px;
+
+            padding: 10px 20px;
+
+            margin: 5px;
+
+            background-color: #111;
+
+            color: #0f0;
+
+            border: 1px solid #0f0;
+
+            cursor: pointer;
+
+        }
+
+        .keypad button:hover {
+
+            background-color: #222;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>The Cursed Keypad</h1>
+
+    <p>Enter the ancient code... if you dare.</p>
+
+    <input type="password" id="codeInput" maxlength="4" onfocus="warning()">
+
+    <div class="keypad">
+
+        <button onclick="press(1)">1</button>
+
+        <button onclick="press(2)">2</button>
+
+        <button onclick="press(3)">3</button><br>
+
+        <button onclick="press(4)">4</button>
+
+        <button onclick="press(5)">5</button>
+
+        <button onclick="press(6)">6</button><br>
+
+        <button onclick="press(7)">7</button>
+
+        <button onclick="press(8)">8</button>
+
+        <button onclick="press(9)">9</button><br>
+
+        <button onclick="clearInput()">C</button>
+
+        <button onclick="press(0)">0</button>
+
+        <button onclick="checkCode()">🔓</button>
+
+    </div>
+
+    <p id="message"></p>
+
+    <script>
+
+        function warning() {
+
+            alert("Once entered, the door cannot be closed...");
+
+        }
+
+        function press(num) {
+
+            const input = document.getElementById("codeInput");
+
+            if (input.value.length < 4) {
+
+                input.value += num;
+
+            }
+
+        }
+
+        function clearInput() {
+
+            document.getElementById("codeInput").value = "";
+
+            document.getElementById("message").innerText = "";
+
+        }
+
+        function checkCode() {
+
+            const input = document.getElementById("codeInput").value;
+
+            const message = document.getElementById("message");
+
+            if (input === "0423") {
+
+                message.innerText = "Access Granted... but the spirits are watching.";
+
+            } else {
+
+                message.innerText = "Wrong code. Now they're angry.";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
