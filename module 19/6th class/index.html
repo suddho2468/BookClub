@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        button {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgb(90, 189, 238);
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+            background-color: black;
+            padding: 10px;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            padding-top: 10px;
+        }
+
+        #tiger-d {
+            background-color: lightcoral;
+            padding: 10px;
+        }
+
+        #lion-d {
+            background-color: rgb(128, 240, 193);
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="QA.html">Question/Answer</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <h1>Home</h1>
+    <div id="tiger-d">
+        <h2>Tiger</h2>
+        <img src="./tiger.jpg" alt="">
+        <br>
+        <button onclick="tiger();">Click Me To Read About Tiger</button>
+        <p id="tiger-info"></p>
+    </div>
+    <br>
+    <div id="lion-d">
+        <h2>Lion</h2>
+        <img src="./lion.jpg" alt="">
+        <br>
+        <button onclick="lion();">Click Me To Read About Lion</button>
+        <p id="lion-info"></p>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 Animal Info. All rights reversed.</p>
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Question/Answer</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        function tiger() {
+            document.getElementById("tiger-info").innerHTML =
+                "The tiger, scientifically known as <strong>Panthera tigris</strong>, is one of the most majestic and powerful creatures to roam the earth. As the largest member of the cat family, it is known for its striking orange coat, bold black stripes, and piercing eyes. Tigers are solitary hunters, relying on their strength, stealth, and keen senses to stalk and ambush prey in the dense forests, grasslands, and mangrove swamps they call home. With their muscular build and sharp claws, they can take down animals much larger than themselves. Despite their fearsome reputation, tigers face numerous threats, including habitat destruction and poaching, making conservation efforts crucial to their survival. These awe-inspiring predators are not just symbols of strength and courage but also key players in maintaining ecological balance in their natural habitats."
+        }
+
+        function lion() {
+            document.getElementById("lion-info").innerHTML =
+                "The lion Panthera leo is often called the king of the jungle, though it actually thrives in grasslands and savannas. Known for its impressive mane and commanding presence, the lion is a symbol of strength, courage, and leadership. Unlike most big cats, lions are highly social animals, living in prides that consist of related females, their offspring, and a few dominant males. They are apex predators, relying on teamwork and strategy to hunt prey such as zebras, antelopes, and buffalos. With their deep roars echoing across vast territories, lions assert dominance and communicate with their pride. Sadly, habitat loss and human conflicts threaten their existence, making conservation efforts essential to protect these magnificent creatures for future generations."
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Mood</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        .face {
+            width: 200px;
+            height: 200px;
+            border: 4px solid black;
+            border-radius: 50%;
+            margin: auto;
+            position: relative;
+            background-color: #fffde7;
+            text-align: center;
+            font-size: 40px;
+            line-height: 200px;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Click to change the mood</h2>
+    <div class="face" id="face">😊</div>
+    <div class="buttons">
+        <button onclick="changeMood()">Change Mood</button>
+    </div>
+    <script>
+        const moods = ['😊', '😄', '😂'];
+        let index = 0;
+        const face = document.getElementById('face');
+
+        function changeMood() {
+            index = (index + 1) % moods.length;
+            face.textContent = moods[index];
+        }
+    </script>
+</body>
+
+</html>
