@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        nav {
+            background-color: rgb(46, 57, 55);
+            text-align: center;
+            padding: 5px;
+        }
+
+        ul a {
+            text-decoration: none;
+            color: wheat;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-size: 20px;
+
+        }
+
+        a:hover {
+            background-color: wheat;
+            color: black;
+        }
+
+        .active {
+            background-color: rgb(56, 204, 204);
+        }
+
+        section {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <a href="index.html" class="active">Home</a>
+            <a href="galary.html">Gallery</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact Us</a>
+        </ul>
+    </nav>
+
+    <section>
+        <img class="myslides" src="https://wallpapers.com/images/hd/food-4k-1pf6px6ryqfjtnyr.jpg" alt=""
+            style="width: 1080px; height: 480px;">
+
+        <img class="myslides" src="https://wallpapers.com/images/high/food-4k-skem5odajc44jwaf.webp" alt=""
+            style="width: 1080px; height: 480px;">
+
+        <img class="myslides"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSeTIT9nsYyaEhrSCFNnTyv5dZyVYpJ6SdtA&s" alt=""
+            style="width: 1080px; height: 480px;">
+
+        <img class="myslides"
+            src="https://www.pixelstalk.net/wp-content/uploads/2016/08/Burger-fast-food-wallpaper-hd-1080p.jpg" alt=""
+            style="width: 1080px; height: 480px;">
+
+        <img class="myslides"
+            src="https://s1.1zoom.me/b4857/620/Fast_food_Hamburger_Vegetables_Fire_Two_520128_1920x1080.jpg" alt=""
+            style="width: 1080px; height: 480px;">
+    </section>
+
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("myslides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = 'none';
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block"
+            setTimeout(carousel, 3000);
+        }
+    </script>
+</body>
+
+</html>
